@@ -1,0 +1,7 @@
+Model training
+Predifined callbacks
+Model checkpoints - saving best models
+Evaluatiion result for each best model
+Tensorboard visualization of embeddings and training monitoring
+Hyper-parameter tuning.
+Metrics

@@ -1,0 +1,8 @@
+{
+    "epochs":3,
+    "loss":"categorical_crossentropy",
+    "metrics":["acc"],
+    "batch_size":128,
+    "change_details":" Details of the changes done.",
+    "summaries_directory":"./summaries"
+}

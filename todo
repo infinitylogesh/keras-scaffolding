@@ -5,3 +5,4 @@ Evaluatiion result for each best model
 Tensorboard visualization of embeddings and training monitoring
 Hyper-parameter tuning.
 Metrics
+json config based training.

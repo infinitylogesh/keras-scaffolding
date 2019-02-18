@@ -27,7 +27,7 @@ class RunForEveryBest(keras.callbacks.Callback):
 
     def __init__(self, evaluation_callback, monitor='val_loss', verbose=0,
                  execute_on_best_only=False,
-                 mode='auto', period=1):
+                 mode='auto', period=1,log_folder=None):
         super(RunForEveryBest, self).__init__()
         self.monitor = monitor
         self.verbose = verbose
@@ -35,6 +35,7 @@ class RunForEveryBest(keras.callbacks.Callback):
         self.execute_on_best_only = execute_on_best_only
         self.period = period
         self.epochs_since_last_save = 0
+        self.log_folder = log_folder
 
         if mode not in ['auto', 'min', 'max']:
             warnings.warn('EvaluateTheBest mode %s is unknown, '
@@ -74,7 +75,7 @@ class RunForEveryBest(keras.callbacks.Callback):
                                   % (epoch + 1, self.monitor, self.best,
                                      current))
                         self.best = current
-                        self.evaluation_callback(epoch,self.best)
+                        self.evaluation_callback(self.model,self.log_folder,epoch,self.best)
                     else:
                         if self.verbose > 0:
                             print('\nEpoch %05d: %s did not improve from %0.5f' %
@@ -82,4 +83,4 @@ class RunForEveryBest(keras.callbacks.Callback):
             else:
                 if self.verbose > 0:
                     print('\nEpoch %05d: Executing callback' % (epoch + 1))
-                self.evaluation_callback(epoch,self.best)
+                self.evaluation_callback(self.model,self.log_folder,epoch,self.best)

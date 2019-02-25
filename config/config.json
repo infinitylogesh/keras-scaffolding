@@ -1,7 +1,7 @@
 {
-    "epochs":3,
+    "epochs":2,
     "loss":"categorical_crossentropy",
-    "metrics":["acc"],
+    "metrics":"acc",
     "batch_size":128,
     "change_details":" Details of the changes done.",
     "summaries_directory":"./summaries"

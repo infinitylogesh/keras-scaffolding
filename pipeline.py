@@ -21,3 +21,6 @@ class Pipeline(object):
 
     def run(self):
         pass # call Training and feed the read params and start training.
+    
+    def infer(self):
+        pass #inference code.
